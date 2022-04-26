@@ -1,24 +1,37 @@
 const $ = document.querySelector.bind(document);
 const str = "abcdefghijklmnopqrstuvwxyz"; //plaint text
-const destr = "DEFGHIJKLMNOPQRSTUVWXYZABC"; //encryption
+const deCeasar = "DEFGHIJKLMNOPQRSTUVWXYZABC"; //ceasar
+const deAtbash = "ZYXWVUTSRQPONMLKJIHGFEDCBA"; // atbash
 const keys = str.split("");
-const encrypKeys = destr.split("");
+const encrypKeys = deCeasar.split("");
 
 const plaintText = $("#plaintext");
 const encryption = $("#encryption");
-function enCeasar(plaintText) {
+const btn = $(".btn");
+const selectEn = $(".selectEn");
+function enCiphertext(plaintText, type) {
   const x = plaintText.split("");
   let ciphertext = "";
+
   x.map((item, index) => {
     if (item === " ") {
       ciphertext += item;
     } else {
-      ciphertext = ciphertext + destr[str.indexOf(item)];
+      if (type === "Ceasar") {
+        ciphertext = ciphertext + deCeasar[str.indexOf(item)];
+      } else if (type === "Atbash") {
+        ciphertext = ciphertext + deAtbash[str.indexOf(item)];
+      }
     }
   });
   return ciphertext;
-  //   return x;
 }
 
-const ko = enCeasar("ech ngoi day gieng");
-console.log(ko);
+function cryptography() {
+  var text = plaintText.value;
+  encryption.innerHTML = `${enCiphertext(plaintText.value, selectEn.value)}`;
+}
+btn.onclick = () => {
+  cryptography();
+};
+// console.log(selectEn.value);
