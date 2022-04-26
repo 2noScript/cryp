@@ -1,0 +1,36 @@
+.container {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  background-color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+#plaintext {
+  width: 600px;
+  outline: none;
+}
+#encryption {
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.box-select {
+  height: 40px;
+}
+.selectEn,
+.btn {
+  cursor: pointer;
+  height: 32px;
+  width: 80px;
+}
+.btn {
+  cursor: pointer;
+  height: 32px;
+}
